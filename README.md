@@ -1,4 +1,4 @@
-# Flight Search API
+### Flight Search API
 
 
 Welcome the Flight Search API
@@ -9,7 +9,7 @@ This project is developed for TokiGames assesment, uses below URLS to fetch flig
 - https://obscure-caverns-79008.herokuapp.com/business
 
 
-###Used Technologies
+### Used Technologies
 ```
 In this project following techonologies used
 - Java 8
@@ -18,7 +18,7 @@ In this project following techonologies used
 - Mockito
 ```
 
-###Dependency
+### Dependency
 ```
 <parent>
 		<groupId>org.springframework.boot</groupId>
