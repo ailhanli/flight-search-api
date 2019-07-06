@@ -5,8 +5,8 @@ Welcome the Flight Search API
 
 This project is developed for TokiGames assesment, uses below URLS to fetch flights;
 
-- https://obscure-caverns-79008.herokuapp.com/cheap
-- https://obscure-caverns-79008.herokuapp.com/business
+https://tokigames-challenge.herokuapp.com/api/flights/cheap
+https://tokigames-challenge.herokuapp.com/api/flights/business
 
 
 ### Used Technologies
