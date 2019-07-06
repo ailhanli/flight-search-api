@@ -6,6 +6,7 @@ Welcome the Flight Search API
 This project is developed for TokiGames assesment, uses below URLS to fetch flights;
 
 https://tokigames-challenge.herokuapp.com/api/flights/cheap
+
 https://tokigames-challenge.herokuapp.com/api/flights/business
 
 
