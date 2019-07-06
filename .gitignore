@@ -1,0 +1,61 @@
+# ------------ #
+# --- GIT ---- #
+# ------------ #
+*.bak
+*.orig
+
+# ------------ #
+# --- Java --- #
+# ------------ #
+ 
+# Compiled code #
+*.class
+
+# Packaged files #
+*.ear
+*.war
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Misc
+*.stackdump
+*.swp
+**/bin/
+node_modules
+*.exec
+
+# ------------- #
+# --- Maven --- #
+# ------------- #
+target/
+pom.xml.*
+release.properties
+
+# --------------- #
+# --- Eclipse --- #
+# --------------- #
+.metadata
+.project
+.classpath
+.settings
+.metadata
+.factorypath
+WebContent
+.mvn
+mvnw
+mvnw.cmd
+logs
+application.log
+# -------------- #
+# ---IntelliJ--- #
+# -------------- #
+*.iml
+.idea/
+*.ipr
+*.iws
+
+.DS_Store
+
+#CMK
+extracted_component*
