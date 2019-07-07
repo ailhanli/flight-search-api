@@ -3,7 +3,8 @@
 
 Welcome the Flight Search API
 
-This project is developed for TokiGames assesment, uses below URLS to fetch flights;
+
+This project is developed for Toki Games assesment and it uses below URLS to fetch flights;
 
 https://tokigames-challenge.herokuapp.com/api/flights/cheap
 
@@ -11,8 +12,10 @@ https://tokigames-challenge.herokuapp.com/api/flights/business
 
 
 ### Used Technologies
+
+In this project following techonologies used:
+
 ```
-In this project following techonologies used
 - Java 8
 - Mongo DB v3.4.18
 - Spring Boot 2.0
@@ -20,6 +23,9 @@ In this project following techonologies used
 ```
 
 ### Dependency
+
+Following dependencies used in this project;
+
 ```
 <parent>
 		<groupId>org.springframework.boot</groupId>
@@ -83,18 +89,24 @@ In this project following techonologies used
 
 ### Default Configuration
 
+Here is the default application.properties defined in application
+
 ```
 server.port=8095
+
 #mongogb configuration
 spring.data.mongodb.database=flightDB
 spring.data.mongodb.username=demoUser
 spring.data.mongodb.password=demoPassword
 spring.data.mongodb.host=localhost
 spring.data.mongodb.port=27017
+
 #flight listener listens mock flight server for each 15minutes(900000 milliseconds)
 flight.listener.interval=900000
+
 cheap.flight.api.url=https://tokigames-challenge.herokuapp.com/api/flights/cheap
 business.flight.api.url=https://tokigames-challenge.herokuapp.com/api/flights/business
+
 page.number=0
 page.size=10
 sort.direction=ASC
@@ -102,9 +114,12 @@ sort.direction=ASC
 
 
 ### Before Build
+
 First you need to install MongoDB on your machine or you can update mongo db settings defined in application.properties shared above.
+
 To install MongoDB on your machine follow instructions at https://docs.mongodb.com/manual/administration/install-community/
-Before run project please be sure that you have already defined Mongo DB user like below;
+
+Before run project, please be sure that you have already defined Mongo DB user in MongoDB like below;
 
 ```
 db.createUser(
@@ -117,6 +132,8 @@ db.createUser(
 ```
 
 #### Logging file
+
+This is the logback.xml to setup logging configuration
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -152,16 +169,20 @@ db.createUser(
 	</root>
 </configuration>
 ```
-Please note that by default console and file appender is active and application logs stored in application.log under the project folder. During the deploy this application on production, you can update log file path via changing logback.xml under the project folder.
+Please note that by default console and file appender is active and application logs stored in application.log file under the project folder. 
+During the deploy it on production, you can update log file path via changing logback.xml under the project folder.
 
 ### Build & Execution
-To build project, execute below command 
+First you have to be sure that you have already installed maven on you machine.
+
+maven --version
+
+To build project, execute below command;
 ```
 - mvn clean package 
 ```
-Please be sure that maven is already installed on you machine
 
-To run project use below commands after build
+To run project use below commands after build;
 ```
 - java -jar flight-search-api-1.0.jar
 ```
@@ -171,7 +192,7 @@ To test API, you can post JSON to URL shared below;
 
 URL:
 ```
- http://localhost/flight-api/v1/flight
+ http://localhost:8095/flight-api/v1/flight
 ```
 
 JSON:
