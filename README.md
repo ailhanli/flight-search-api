@@ -4,7 +4,7 @@
 Welcome the Flight Search API
 
 
-This project is developed for Toki Games assesment and it uses below URLS to fetch flights;
+This project is developed for TokiGames assessment and it uses below URLS to fetch flights;
 
 https://tokigames-challenge.herokuapp.com/api/flights/cheap
 
@@ -13,7 +13,7 @@ https://tokigames-challenge.herokuapp.com/api/flights/business
 
 ### Used Technologies
 
-In this project following techonologies used:
+In this project following technologies used:
 
 ```
 - Java 8
@@ -101,7 +101,7 @@ spring.data.mongodb.password=demoPassword
 spring.data.mongodb.host=localhost
 spring.data.mongodb.port=27017
 
-#flight listener listens mock flight server for each 15minutes(900000 milliseconds)
+#flight listener listens mock flight server for each 15 minutes (900000 milliseconds)
 flight.listener.interval=900000
 
 cheap.flight.api.url=https://tokigames-challenge.herokuapp.com/api/flights/cheap
@@ -115,11 +115,11 @@ sort.direction=ASC
 
 ### Before Build
 
-First you need to install MongoDB on your machine or you can update mongo db settings defined in application.properties shared above.
+First you need to install MongoDB on your machine or you can update MongoDB settings defined in application.properties shared above if you have already installed MongoDB.
 
 To install MongoDB on your machine follow instructions at https://docs.mongodb.com/manual/administration/install-community/
 
-Before run project, please be sure that you have already defined Mongo DB user in MongoDB like below;
+Before run project, please be sure that you have already defined MongoDB user in MongoDB like below;
 
 ```
 db.createUser(

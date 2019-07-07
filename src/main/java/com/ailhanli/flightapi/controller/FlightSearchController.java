@@ -37,6 +37,7 @@ public class FlightSearchController {
 		try {
 			return flightSearchService.searchFlight(flightSeachCriteria);
 		} catch (InvalidRequestException e) {
+			log.warn("invalid data recieved ", e);
 			return Flux.error(e);
 		}
 	}
@@ -49,6 +50,7 @@ public class FlightSearchController {
 		try {
 			return flightSearchService.searchFlightSize(flightSeachCriteria);
 		} catch (InvalidRequestException e) {
+			log.warn("invalid data recieved ", e);
 			return Mono.error(e);
 		}
 	}
