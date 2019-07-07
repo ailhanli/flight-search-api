@@ -25,9 +25,6 @@ public class FlightRefreshServiceImpl implements FlightRefreshService {
 		this.externalService = externalService;
 		this.flightRepository = flightRepository;
 		this.flightConverter = flightConverter;
-		
-		//refresh db on startup
-		refreshDatabase();
 	}
 
 	@Override
