@@ -40,12 +40,8 @@ public class ExternalFlightServiceImpl implements ExternalFlightService {
 				.uri(cheapFlightApiUrl)
 				.accept(MediaType.APPLICATION_JSON)
 				.retrieve()
-				.onStatus(HttpStatus::is4xxClientError, clientResponse ->
-                	Mono.error(new FlightApiConnectionError("4xx error occured during the getting cheap flights"))
-	            )
-	            .onStatus(HttpStatus::is5xxServerError, clientResponse ->
-	                Mono.error(new FlightApiConnectionError("5xx error occured during the getting cheap flights"))
-	            )
+				.onStatus(HttpStatus::is4xxClientError, clientResponse ->Mono.error(new FlightApiConnectionError("4xx error occured during the getting cheap flights")))
+	            .onStatus(HttpStatus::is5xxServerError, clientResponse ->Mono.error(new FlightApiConnectionError("5xx error occured during the getting cheap flights")))
 				.bodyToMono(CheapFlightResult.class)
 				.map(CheapFlightResult::getData)
 				.flatMapMany(Flux::fromArray)
@@ -60,12 +56,8 @@ public class ExternalFlightServiceImpl implements ExternalFlightService {
 				.uri(businessFlightApiUrl)
 				.accept(MediaType.APPLICATION_JSON)
 				.retrieve()
-				.onStatus(HttpStatus::is4xxClientError, clientResponse ->
-            		Mono.error(new FlightApiConnectionError("4xx error occured during the getting business flights"))
-	            )
-	            .onStatus(HttpStatus::is5xxServerError, clientResponse ->
-	                Mono.error(new FlightApiConnectionError("5xx error occured during the getting business flights"))
-	            )
+				.onStatus(HttpStatus::is4xxClientError, clientResponse ->Mono.error(new FlightApiConnectionError("4xx error occured during the getting business flights")))
+	            .onStatus(HttpStatus::is5xxServerError, clientResponse ->Mono.error(new FlightApiConnectionError("5xx error occured during the getting business flights")))
 				.bodyToMono(BusinessFlightResult.class)
 				.map(BusinessFlightResult::getData)
 				.flatMapMany(Flux::fromArray)
