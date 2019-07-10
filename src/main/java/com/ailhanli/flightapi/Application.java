@@ -8,12 +8,11 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 
 @EnableMongoRepositories
 @EnableWebFlux
-@SpringBootApplication
 @EnableScheduling
+@SpringBootApplication
 public class Application {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	
 }

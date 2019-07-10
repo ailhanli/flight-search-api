@@ -31,6 +31,7 @@ public class FlightRefreshServiceImpl implements FlightRefreshService {
 		.subscribeOn(Schedulers.elastic())//flights are going to delete by elastic thread from thread pool
 		.flatMap(s->flightRepository.removeAllFlights())
 		.doOnNext(s->log.info("all flights removed from db successfully"))
+		.publishOn(Schedulers.elastic())//getting all flights from external by elastic thread from thread pool
 		.flatMap(s-> Flux.concat(externalService.getCheapFlights(), externalService.getBusinessFlights()))
 		.publishOn(Schedulers.elastic())//a flight is going to save by elastic thread from thread pool
 		.flatMap(flightRepository::saveFlight)

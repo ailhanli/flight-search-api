@@ -179,7 +179,12 @@ maven --version
 
 To build project, execute below command;
 ```
-- mvn clean package 
+- mvn  install 
+```
+
+To create application jar, execute below command;
+```
+- mvn package 
 ```
 
 To run project use below commands after build;
