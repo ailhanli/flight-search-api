@@ -1,13 +1,12 @@
 package com.ailhanli.flightapi.integration;
 
-import com.ailhanli.flightapi.integration.beans.BusinessFlightResult;
-import com.ailhanli.flightapi.integration.beans.CheapFlightResult;
+import com.ailhanli.flightapi.dao.model.Flight;
 
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 
 public interface ExternalFlightService {
 	
-	Mono<CheapFlightResult> getCheapFlights();
+	Flux<Flight> getCheapFlights();
 
-	Mono<BusinessFlightResult> getBusinessFlights();
+	Flux<Flight> getBusinessFlights();
 }

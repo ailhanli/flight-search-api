@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.ailhanli.flightapi.beans.FlightSearchCriteria;
 import com.ailhanli.flightapi.dao.model.Flight;
 import com.ailhanli.flightapi.dao.util.QueryBuilder;
+import com.mongodb.client.result.DeleteResult;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -58,16 +59,12 @@ public class FlightRepositoryImpl implements FlightRepository {
 	}
 
 	@Override
-	public void removeAllFlights() {
-		mongoTemplate
-		.remove(new Query(), Flight.class)
-		.subscribe();
+	public Mono<DeleteResult> removeAllFlights() {
+		return mongoTemplate.remove(new Query(), Flight.class);
 	}
 
 	@Override
-	public void saveFlight(Flight flight) {
-		mongoTemplate
-		.insert(flight)
-		.subscribe();
+	public Mono<Flight> saveFlight(Flight flight) {
+		return mongoTemplate.insert(flight);
 	}
 }

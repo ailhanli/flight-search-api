@@ -50,10 +50,10 @@ public class FlightSearchServiceImpl implements FlightSearchService {
 	@Override
 	public Mono<Long> searchFlightSize(Map<String, Object> flightSeachCriteria) throws InvalidRequestException {
 		//validate input
-		Optional<String> result=flightSearchValidator.validateCriteria(flightSeachCriteria);
+		Optional<String> error=flightSearchValidator.validateCriteria(flightSeachCriteria);
 		
-		if(result.isPresent()){
-			throw new InvalidRequestException(result.get());
+		if(error.isPresent()){
+			throw new InvalidRequestException(error.get());
 		}
 
 		return flightRepository.queryFlightSize(flightSeachCriteria);

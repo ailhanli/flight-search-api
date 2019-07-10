@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.ailhanli.flightapi.beans.FlightSearchCriteria;
 import com.ailhanli.flightapi.dao.model.Flight;
+import com.mongodb.client.result.DeleteResult;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -14,7 +15,7 @@ public interface FlightRepository{
 
 	Mono<Long> queryFlightSize(Map<String, Object> flightSearchCriteria);
 	
-	void removeAllFlights();
+	Mono<DeleteResult> removeAllFlights();
 	
-	void saveFlight(Flight flight);
+	Mono<Flight> saveFlight(Flight flight);
 }
