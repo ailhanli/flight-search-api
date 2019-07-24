@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.ailhanli.flightapi.beans.FlightSearchCriteria;
+import com.ailhanli.flightapi.beans.FlightSearchCriteriaDTO;
 import com.ailhanli.flightapi.dao.model.Flight;
 import com.ailhanli.flightapi.dao.util.QueryBuilder;
 import com.mongodb.client.result.DeleteResult;
@@ -28,7 +28,7 @@ public class FlightRepositoryImpl implements FlightRepository {
 	}
 
 	@Override
-	public Flux<Flight> queryFlight(FlightSearchCriteria flightSearchCriteria) {
+	public Flux<Flight> queryFlight(FlightSearchCriteriaDTO flightSearchCriteria) {
 
 		Integer pageNumber = flightSearchCriteria.getPageNumber();
 		Integer pageSize = flightSearchCriteria.getPageSize();

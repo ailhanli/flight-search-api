@@ -1,16 +1,13 @@
 package com.ailhanli.flightapi.service;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.ailhanli.flightapi.beans.FlightSearchCriteria;
+import com.ailhanli.flightapi.beans.FlightSearchCriteriaDTO;
 import com.ailhanli.flightapi.dao.FlightRepository;
 import com.ailhanli.flightapi.dao.model.Flight;
 import com.ailhanli.flightapi.exception.InvalidRequestException;
-import com.ailhanli.flightapi.validator.FlightSearchCriteriaInitiliazer;
 import com.ailhanli.flightapi.validator.FlightSearchCriteriaValidator;
 
 import reactor.core.publisher.Flux;
@@ -22,27 +19,19 @@ public class FlightSearchServiceImpl implements FlightSearchService {
 
 	private final FlightSearchCriteriaValidator flightSearchValidator;
 	
-	private final FlightSearchCriteriaInitiliazer initiliazer;
 
-	public FlightSearchServiceImpl(FlightRepository flightRepository, FlightSearchCriteriaValidator flightSearchValidator, FlightSearchCriteriaInitiliazer initiliazer) {
+	public FlightSearchServiceImpl(FlightRepository flightRepository, FlightSearchCriteriaValidator flightSearchValidator) {
 		super();
 		this.flightRepository = flightRepository;
 		this.flightSearchValidator = flightSearchValidator;
-		this.initiliazer = initiliazer;
 	}
 
 	@Override
-	public Flux<Flight> searchFlight(FlightSearchCriteria flightSearchCriteria) throws InvalidRequestException {
-
-		initiliazer.setup(flightSearchCriteria);
+	public Flux<Flight> searchFlight(FlightSearchCriteriaDTO flightSearchCriteria) throws InvalidRequestException {
 		
 		//validate input
-		List<String> errors = flightSearchValidator.validateFlightSearchCriteria(flightSearchCriteria);
+		flightSearchValidator.validateFlightSearchCriteria(flightSearchCriteria);
 		
-		if(errors.size()>0){
-			throw new InvalidRequestException(errors.stream().reduce("", (a,b)->a+"\n"+b));
-		}
-
 		return flightRepository.queryFlight(flightSearchCriteria);
 		
 	}
@@ -50,12 +39,8 @@ public class FlightSearchServiceImpl implements FlightSearchService {
 	@Override
 	public Mono<Long> searchFlightSize(Map<String, Object> flightSeachCriteria) throws InvalidRequestException {
 		//validate input
-		Optional<String> error=flightSearchValidator.validateCriteria(flightSeachCriteria);
+		flightSearchValidator.validateCriteria(flightSeachCriteria);
 		
-		if(error.isPresent()){
-			throw new InvalidRequestException(error.get());
-		}
-
 		return flightRepository.queryFlightSize(flightSeachCriteria);
 	}	
 }

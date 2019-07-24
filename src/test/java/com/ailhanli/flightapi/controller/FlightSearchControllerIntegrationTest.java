@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import com.ailhanli.flightapi.beans.FlightSearchCriteria;
+import com.ailhanli.flightapi.beans.FlightSearchCriteriaDTO;
 
 @Ignore
 @RunWith(SpringRunner.class)
@@ -25,7 +25,7 @@ public class FlightSearchControllerIntegrationTest {
 		Map<String,Object> testCriteria = new HashMap<>();
 		testCriteria.put("from", "Istanbul");
 		
-		FlightSearchCriteria criteria = FlightSearchCriteria
+		FlightSearchCriteriaDTO criteria = FlightSearchCriteriaDTO
 				.builder()
 				.criteria(testCriteria)
 				.build();
@@ -49,7 +49,7 @@ public class FlightSearchControllerIntegrationTest {
 		Map<String,Object> testCriteria = new HashMap<>();
 		testCriteria.put("test1234", "Tests");
 		
-		FlightSearchCriteria criteria = FlightSearchCriteria
+		FlightSearchCriteriaDTO criteria = FlightSearchCriteriaDTO
 				.builder()
 				.criteria(testCriteria)
 				.pageNumber(2)

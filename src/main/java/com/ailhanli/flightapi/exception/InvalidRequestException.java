@@ -1,6 +1,6 @@
 package com.ailhanli.flightapi.exception;
 
-public class InvalidRequestException extends Exception {
+public class InvalidRequestException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	private String errorMessage;
