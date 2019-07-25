@@ -4,7 +4,7 @@
 Welcome the Flight Search API
 
 
-This project is developed for TokiGames assessment and it uses below URLS to fetch flights;
+This API uses URLS below to fetch flights;
 
 https://tokigames-challenge.herokuapp.com/api/flights/cheap
 
@@ -218,3 +218,4 @@ https://www.oracle.com/technetwork/java/javaee/downloads/codeconvtoc-136057.html
 For more information about API, please check unit tests under the /src/test/*.Java
 
 
+ 
